@@ -1681,7 +1681,7 @@ class Request(MutableMapping):
 
         if self.action == 'query':
             meta = self._params.get("meta", [])
-            if "userinfo" not in meta:
+            if "userinfo" not in meta and 'tokens' not in meta:
                 meta = set(meta + ['userinfo'])
                 self._params['meta'] = list(meta)
             uiprop = self._params.get("uiprop", [])
